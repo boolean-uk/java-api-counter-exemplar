@@ -15,4 +15,10 @@ public class CounterController {
     public int getCount() {
         return this.count;
     }
+
+    @GetMapping("/counter/increment")
+    public int increment() {
+        this.count++;
+        return this.count;
+    }
 }
