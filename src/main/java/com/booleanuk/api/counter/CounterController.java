@@ -53,4 +53,14 @@ public class CounterController {
         }
         return this.counters.get(name);
     }
+
+    @GetMapping("/{name}/decrement")
+    public int decrementNamedCounter(@PathVariable String name) {
+        if(!this.counters.containsKey(name)) {
+            this.counters.put(name, -1);
+        } else {
+            this.counters.put(name, this.counters.get(name) - 1);
+        }
+        return this.counters.get(name);
+    }
 }
